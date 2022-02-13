@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Header from './components/header';
+import RegisterEmp from './components/employee/register';
+import EnhancedTable from './components/employee/view';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path='dashboard' element={<Header />} />
+        <Route path='employeeReg' element={<RegisterEmp />} />
+        <Route path='empview' element={<EnhancedTable />} />
+        <Route index element={<App />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
